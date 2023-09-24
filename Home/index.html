@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETeam - Python开发工作室</title>
+    <!-- 引入fullPage.js库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            transition: background-color 0.5s ease-in-out;
+        }
+
+        #fullpage {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border: 5px solid #333;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 20px;
+            margin-left: 5px;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1,
+        p,
+        li {
+            color: #000;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .section.active h1 {
+            opacity: 1;
+        }
+
+        p {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="fullpage">
+        <div class="section">
+            <div class="profile-image animated">
+                <img src="/Home/w.jpg" alt="DETeam">
+            </div>
+            <h1 class="animated">DETeam</h1>
+            <p class="animated">创立于2023.9.25 - 开发工作室</p>
+        </div>
+        <div class="section">
+            <h1 class="animated">团队简介</h1>
+            <p class="animated">DETeam是一个初创开发工作室！我们的开发重心为Python。</p>
+            <ul>
+                <li class="animated">Python 第三方库开发</li>
+                <li class="animated">工具软件开发</li>
+                <li class="animated">...</li>
+            </ul>
+        </div>
+        <!-- 联系方式部分 -->
+        <div class="section">
+            <h1 class="animated">联系方式</h1>
+            <p class="animated">您可以通过以下方式联系我们：</p>
+            <ul>
+                <li class="animated">Email: DE-Team@outlook.com</li>
+                <li class="animated">GitHub: <a href="https://github.com/DETeam-GitHub" target="_blank">主页</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 引入fullPage.js库的JavaScript文件 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.js"></script>
+    <script>
+        new fullpage('#fullpage', {
+            anchors: ['section1', 'section2', 'section3'],
+            autoScrolling: true,
+            scrollHorizontally: true,
+        });
+
+        fullpage_api.setAllowScrolling(true);
+
+        fullpage_api.on('afterSlideLoad', function (section, origin, destination, direction) {
+            const sectionId = section.getAttribute('id');
+            const slideIndex = destination.index;
+            const animatedElements = document.querySelectorAll(`#${sectionId} .animated`);
+            
+            animatedElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('fadeInUp');
+                }, index * 1000);
+            });
+        });
+    </script>
+</body>
+</html>
