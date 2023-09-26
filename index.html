@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome!</title>
+  <title>Welcome!</title> <!-- 保持原始标题 -->
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -52,7 +52,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var helloWorldText = document.querySelector(".hello-world-text");
-      var textToType = "Welcome to DETeam!";
+      var textToType = "Welcome to DETeam!"; <!-- 保持原始内容 -->
       var index = 0;
 
       function typeText(i) {
@@ -61,23 +61,23 @@
           index++;
           setTimeout(function() {
             typeText(i + 1);
-          }, 300); // Delay of 300 milliseconds (0.3 seconds)
+          }， 150); // 延迟 150 毫秒（0.15 秒）
         } else {
-          // Remove the cursor after typing animation completes
+          // 在输入动画完成后移除光标
           setTimeout(function() {
             helloWorldText.style.borderRight = "none";
-          }, 300); // Delay of 300 milliseconds (0.3 seconds)
+          }, 300); // 延迟 300 毫秒（0.3 秒）
 
-          // Trigger the explosion effect after removing the cursor
+          // 在移除光标后触发爆炸效果
           setTimeout(function() {
             helloWorldText.style.animation = "explode 0.8s forwards";
-          }, 300); // Delay of 500 milliseconds (0.5 seconds) before the explosion
+          }， 300); // 延迟 300 毫秒（0.3 秒）再触发爆炸
 
-          // Redirect to another page after 3 seconds
+          // 3 秒后重定向到另一个页面
           setTimeout(function() {
-            // Replace 'https://example.com' with the URL you want to redirect to
+            // 用您要重定向到的 URL 替换 'https://example.com'
             window.location.href = "/Home";
-          }, 3000); // Delay of 3000 milliseconds (3 seconds) for the redirect
+          }, 500); // 延迟 500 毫秒（0.5 秒）进行重定向
         }
       }
 
