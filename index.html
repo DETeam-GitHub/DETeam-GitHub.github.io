@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome!</title> <!-- 保持原始标题 -->
+  <title>Welcome!</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -52,7 +52,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var helloWorldText = document.querySelector(".hello-world-text");
-      var textToType = "Welcome to DETeam!"; <!-- 保持原始内容 -->
+      var textToType = "Welcome to DETeam!";
       var index = 0;
 
       function typeText(i) {
@@ -61,7 +61,7 @@
           index++;
           setTimeout(function() {
             typeText(i + 1);
-          }， 150); // 延迟 150 毫秒（0.15 秒）
+          }, 150); // 延迟 150 毫秒（0.15 秒）
         } else {
           // 在输入动画完成后移除光标
           setTimeout(function() {
@@ -71,7 +71,7 @@
           // 在移除光标后触发爆炸效果
           setTimeout(function() {
             helloWorldText.style.animation = "explode 0.8s forwards";
-          }， 300); // 延迟 300 毫秒（0.3 秒）再触发爆炸
+          }, 300); // 延迟 300 毫秒（0.3 秒）再触发爆炸
 
           // 3 秒后重定向到另一个页面
           setTimeout(function() {
